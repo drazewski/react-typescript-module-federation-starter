@@ -1,8 +1,14 @@
 import path from "path";
-import webpack, {Configuration} from "webpack";
+import webpack from "webpack";
+import { Configuration as WebpackConfiguration } from "webpack";
+import { Configuration as WebpackDevServerConfiguration } from "webpack-dev-server";
 import HtmlWebpackPlugin from "html-webpack-plugin";
 import ForkTsCheckerWebpackPlugin from "fork-ts-checker-webpack-plugin";
 import {TsconfigPathsPlugin} from "tsconfig-paths-webpack-plugin";
+
+interface Configuration extends WebpackConfiguration {
+    devServer?: WebpackDevServerConfiguration;
+}
 
 const webpackConfig = (env): Configuration => ({
     entry: "./src/index.tsx",
@@ -14,6 +20,13 @@ const webpackConfig = (env): Configuration => ({
     output: {
         path: path.join(__dirname, "/dist"),
         filename: "build.js"
+    },
+    devServer: {
+        publicPath: "/",
+        contentBase: "./public",
+        hot: true,
+        historyApiFallback: true,
+        port: 3000
     },
     module: {
         rules: [
