@@ -1,4 +1,4 @@
-import LoginForm from "components/LoginForm";
+import LoginForm from "../components/LoginForm";
 import React from "react";
 import styled from "styled-components";
 

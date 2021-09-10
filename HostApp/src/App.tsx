@@ -1,8 +1,8 @@
 import React from "react";
 import { BrowserRouter, Route, Switch } from 'react-router-dom';
-import Header from "components/Header";
+import Header from "./components/Header";
 import GlobalStyle from "./globalStyles";
-import Footer from "components/Footer";
+import Footer from "./components/Footer";
 import { RoutesConfig } from "./routing/routeConfigurations";
 import LoginView from "./views/Login";
 import { AuthContextProvider } from "./context/authContext/AuthContextProvider";
