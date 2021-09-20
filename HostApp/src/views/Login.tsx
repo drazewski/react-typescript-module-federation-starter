@@ -1,14 +1,18 @@
-import LoginForm from "../components/LoginForm";
+import LoginForm from "../components/loginForm/LoginForm";
 import React from "react";
-import styled from "styled-components";
+import { Box } from '@mui/system';
 
-const ViewFrame = styled.section`
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    height: calc(100vh - 120px);
-`;
-
-const LoginView = (): JSX.Element => <ViewFrame><LoginForm /></ViewFrame>
+const LoginView = (): JSX.Element => (
+    <Box 
+        display="flex"
+        justifyContent="center"
+        alignItems="center"
+        sx={{
+            height: 'calc(100vh - 120px)'
+        }}
+    >
+        <LoginForm />
+    </Box>
+);
 
 export default LoginView;

@@ -1,5 +1,7 @@
 /* eslint-disable no-shadow */
 export enum RoutesConfig {
   Login = '/login',
-  Home = '/'
+  Dashboard = '/dashboard',
+  Content = '/content',
+  QuestionsAndAnswers = '/questionsandanswers'
 }

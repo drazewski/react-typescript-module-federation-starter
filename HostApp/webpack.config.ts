@@ -37,7 +37,21 @@ const webpackConfig = (env): Configuration => ({
                     transpileOnly: true
                 },
                 exclude: /dist/
-            }
+            },
+            {
+                test: /\.svg$/,
+                use: [
+                  {
+                    loader: '@svgr/webpack',
+                    options: {
+                      native: false,
+                    }
+                  },
+                  {
+                    loader: 'url-loader'
+                  }
+                ]
+              }
         ]
     },
     plugins: [

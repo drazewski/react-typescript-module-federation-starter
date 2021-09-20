@@ -24,8 +24,5 @@
       ]
     }
   },
-  "include": [
-    "./src",
-    "./webpack.config.ts"
-, "HostApp/src/services/hooks/useAuthService.tsx", "HostApp/src/context/authContext", "HostApp/src/views", "HostApp/src/routing", "HostApp/src/index.tsx", "HostApp/src/App.tsx", "HostApp/src/globalStyles.ts", "HostApp/src/components"  ]
+  "include": ["**/*.ts", "**/*.tsx", "typings/**/*.d.ts"]
 }
