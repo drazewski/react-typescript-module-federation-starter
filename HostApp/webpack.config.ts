@@ -6,6 +6,9 @@ import HtmlWebpackPlugin from "html-webpack-plugin";
 import ForkTsCheckerWebpackPlugin from "fork-ts-checker-webpack-plugin";
 import {TsconfigPathsPlugin} from "tsconfig-paths-webpack-plugin";
 
+// const { ModuleFederationPlugin } = require("webpack").container;
+// const deps = require("./package.json").dependencies;
+
 interface Configuration extends WebpackConfiguration {
     devServer?: WebpackDevServerConfiguration;
 }
@@ -32,12 +35,15 @@ const webpackConfig = (env): Configuration => ({
         rules: [
             {
                 test: /\.tsx?$/,
-                loader: "ts-loader",
-                options: {
-                    transpileOnly: true
-                },
-                exclude: /dist/
+                loader: "ts-loader"
             },
+            // {
+            //     test: /bootstrap\.tsx$/,
+            //     loader: "bundle-loader",
+            //     options: {
+            //       lazy: true,
+            //     },
+            // },
             {
                 test: /\.svg$/,
                 use: [
@@ -67,7 +73,33 @@ const webpackConfig = (env): Configuration => ({
             eslint: {
                 files: "./src/**/*.{ts,tsx,js,jsx}" // required - same as command `eslint ./src/**/*.{ts,tsx,js,jsx} --ext .ts,.tsx,.js,.jsx`
             }
-        })
+        }),
+        // new ModuleFederationPlugin({
+        //     name: "hostApp",
+        //     library: { type: "var", name: "hostApp" },
+        //     filename: "remoteEntry.js",
+        //     exposes: {
+        //       "./App": "./src/App"
+        //     },
+        //     shared: [
+        //       {
+        //         react: {
+        //           singleton: true,
+        //           requiredVersion: deps.react,
+        //           eager: true,
+        //         },
+        //         "react-dom": {
+        //           singleton: true,
+        //           requiredVersion: deps["react-dom"],
+        //           eager: true,
+        //         },
+        //         "@material-ui/core": {
+        //           singleton: true,
+        //           eager: true,
+        //         }
+        //       }
+        //     ]
+        //   }),
     ]
 });
 

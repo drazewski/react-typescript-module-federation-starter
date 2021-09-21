@@ -1,7 +1,7 @@
 import React from 'react';
 import { BrowserRouter, Redirect } from 'react-router-dom'; 
 import {Box} from '@mui/system';
-import NavBar from 'src/components/NavBar/NavBar';
+import NavBar from 'src/components/navBar/NavBar';
 import PrivateRoute from 'src/routing/PrivateRoute';
 import { RoutesConfig } from 'src/routing/routeConfigurations';
 import Content from 'src/containers/content/Content';
@@ -13,7 +13,7 @@ const MainView = (): JSX.Element => {
     return (
         <BrowserRouter>
             <NavBar />
-            <Box component="main" sx={{m: '73px'}}>  
+            <Box component="main" sx={{mt: '70px', ml: '75px'}}>  
                 <PrivateRoute path={RoutesConfig.Dashboard} component={Content} />
                 <PrivateRoute path={RoutesConfig.Content} component={Dashboard} />
                 <PrivateRoute exact path={'/'} component={DashboardRedirect} />
